@@ -1,4 +1,7 @@
-#is chat muted?
+#catbot config version
+version: 0
+
+#is chat enabled?
 ChatEnabled: true
 
 #Msg shown when people say bad things

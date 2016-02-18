@@ -61,7 +61,7 @@ public class GadgetsCommand extends AbstractCommand {
 
         if (args.length == 1) {
 
-            if (sender.hasPermission("microcore.gadgets")) {
+            if (sender.hasPermission("catcore.gadgets")) {
                 toReturn.add("enable");
                 toReturn.add("disable");
             }

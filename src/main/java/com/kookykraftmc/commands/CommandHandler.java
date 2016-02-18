@@ -38,6 +38,7 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
 
         //core
         cmds.add(new GadgetsCommand());
+        cmds.add(new CatbotCommand());
 
         //player
         cmds.add(new GamemodeCommand());
