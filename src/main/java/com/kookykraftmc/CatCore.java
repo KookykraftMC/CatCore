@@ -4,6 +4,7 @@ import com.kookykraftmc.commands.*;
 import com.kookykraftmc.config.ConfigManager;
 import com.kookykraftmc.config.LobbyManager;
 import com.kookykraftmc.config.MessageManager;
+import com.kookykraftmc.listeners.CatFilter;
 import com.kookykraftmc.utils.LogUtil;
 
 import org.bukkit.Bukkit;
@@ -20,6 +21,9 @@ public class CatCore extends JavaPlugin {
     public void onEnable() {
         p = this;
 
+        //log plugin startup
+        logStartup();
+
         //setup our managers
         ConfigManager.getInstance().setup();
         MessageManager.getInstance().setup();
@@ -29,7 +33,7 @@ public class CatCore extends JavaPlugin {
         //TODO: vault integration for KTokens
 
         //register any listeners we may need
-        //TODO: Join listeners, etc
+        registerListeners(Bukkit.getPluginManager());
 
         //finally, we register commands
         registerCommands();
@@ -64,5 +68,13 @@ public class CatCore extends JavaPlugin {
         getCommand("op").setExecutor(new OPCommand());
         getCommand("deop").setExecutor(new DEOPCommand());
         getCommand("setlobby").setExecutor(new SetLobbyCommand());
+    }
+
+    public void registerListeners(PluginManager pluginManager) {
+
+        final CatFilter catFilter = new CatFilter();
+
+        pluginManager.registerEvents(catFilter, this);
+
     }
 }
