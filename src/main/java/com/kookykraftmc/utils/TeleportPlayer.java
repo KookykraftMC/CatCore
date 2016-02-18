@@ -1,6 +1,6 @@
 package com.kookykraftmc.utils;
 
-import com.frostynexus.FrostyNexusCore;
+import com.kookykraftmc.CatCore;
 import org.bukkit.entity.Player;
 
 import java.io.ByteArrayOutputStream;
@@ -27,7 +27,7 @@ public class TeleportPlayer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        player.sendPluginMessage(FrostyNexusCore.getPlugin(), "BungeeCord", b.toByteArray());
+        player.sendPluginMessage(CatCore.getPlugin(), "BungeeCord", b.toByteArray());
     }
 
 }

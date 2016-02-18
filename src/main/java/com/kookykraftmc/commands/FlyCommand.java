@@ -1,8 +1,7 @@
 package com.kookykraftmc.commands;
 
-import com.frostynexus.utils.RankUtils;
-import com.frostynexus.config.MessageManager;
-import com.frostynexus.config.MessageManager.PrefixType;
+import com.kookykraftmc.config.MessageManager;
+import com.kookykraftmc.config.MessageManager.PrefixType;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,7 +19,7 @@ public class FlyCommand implements CommandExecutor {
 
             if (cmd.getName().equalsIgnoreCase("fly")) {
 
-                if (RankUtils.getInstance().isDonator(player) || RankUtils.getInstance().isStaff(player) || RankUtils.getInstance().isMediaStaff(player)) {
+                if (player.hasPermission("catcore.fly")) {
 
                     if (!player.isFlying()) {
 

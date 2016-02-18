@@ -1,8 +1,7 @@
 package com.kookykraftmc.commands;
 
-import com.frostynexus.config.MessageManager;
-import com.frostynexus.config.MessageManager.PrefixType;
-import com.frostynexus.utils.RankUtils;
+import com.kookykraftmc.config.MessageManager;
+import com.kookykraftmc.config.MessageManager.PrefixType;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,7 +18,7 @@ public class BroadcastCommand implements CommandExecutor {
 
             if (cmd.getName().equalsIgnoreCase("broadcast")) {
 
-                if (RankUtils.getInstance().isStaff(player)) {
+                if (player.hasPermission("catcore.broadcast")) {
 
                     StringBuilder builder = new StringBuilder();
                     for (int i = 0; i < args.length; i++) {
