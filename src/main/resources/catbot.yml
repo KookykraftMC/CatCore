@@ -1,3 +1,6 @@
+#is chat muted?
+ChatEnabled: true
+
 #Msg shown when people say bad things
 DenyMsg: "We do not allow that kind of language! Sorry!"
 

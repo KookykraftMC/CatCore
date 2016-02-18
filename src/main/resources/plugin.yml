@@ -22,3 +22,6 @@ commands:
     aliases: [gm]
   gadgets:
     description: Allows staff to enable or disable gadgets
+  catbot:
+    description: Allows staff to control catbot filter and settings
+    aliases: [cb]

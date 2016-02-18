@@ -17,13 +17,16 @@ public class ConfigManager {
 
     private FileConfiguration messages;
     private FileConfiguration lobby;
+    private FileConfiguration catbot;
 
     private File messagesFile;
     private File lobbyFile;
+    private File catbotFile;
 
     private static final int CONFIG_VERSION = 0;
     private static final int MESSAGES_VERSION = 0;
     private static final int LOBBY_VERSION = 0;
+    private static final int CATBOT_VERSION = 0;
 
 
     public ConfigManager() {
@@ -43,6 +46,7 @@ public class ConfigManager {
         //load our config files
         messagesFile = new File(p.getDataFolder(), "messages.yml");
         lobbyFile = new File(p.getDataFolder(), "lobby.yml");
+        catbotFile = new File(p.getDataFolder(), "catbot.yml");
 
         try {
             if(!messagesFile.exists()) {
@@ -52,6 +56,11 @@ public class ConfigManager {
             if (!lobbyFile.exists()) {
                 loadFile("lobby.yml");
             }
+
+            if (!catbotFile.exists()) {
+                loadFile("catbot.yml");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -60,6 +69,7 @@ public class ConfigManager {
         //load our config files
         messages = YamlConfiguration.loadConfiguration(messagesFile);
         lobby = YamlConfiguration.loadConfiguration(lobbyFile);
+        catbot = YamlConfiguration.loadConfiguration(catbotFile);
 
     }
 
@@ -74,6 +84,10 @@ public class ConfigManager {
 
     public FileConfiguration getLobbyConfig() {
         return lobby;
+    }
+
+    public FileConfiguration getCatbotConfig() {
+        return catbot;
     }
 
     public boolean isDebugEnabled() {
@@ -163,6 +177,17 @@ public class ConfigManager {
         }
     }
 
+    public void saveCatbotConfig() {
+        try {
+
+            //save our catbot config file
+            catbot.save(catbotFile);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void reloadConfig() {
         p.reloadConfig();
     }
@@ -185,6 +210,16 @@ public class ConfigManager {
         }
         lobby.set("version", LOBBY_VERSION);
         saveLobbyConfig();
+    }
+
+    public void reloadCatbotConfig() {
+        catbot = YamlConfiguration.loadConfiguration(catbotFile);
+        if (catbot.getInt("version") != CATBOT_VERSION) {
+            moveFile(catbotFile);
+            loadFile("catbot.yml");
+        }
+        lobby.set("version", CATBOT_VERSION);
+        saveCatbotConfig();
     }
 
 }

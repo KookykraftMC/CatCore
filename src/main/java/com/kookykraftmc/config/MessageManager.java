@@ -18,7 +18,7 @@ public class MessageManager {
     private HashMap<PrefixType, String>prefix = new HashMap<PrefixType, String>();
     public enum PrefixType {
 
-        MAIN, INFO, WARNING, ERROR, PORTAL, PERMISSIONS, VOTE, WHITELIST, OP, JOIN, QUIT, MINIGAME, PET, GADGET, GAMEMODE,
+        MAIN, INFO, WARNING, ERROR, PORTAL, PERMISSIONS, VOTE, WHITELIST, OP, JOIN, QUIT, MINIGAME, PET, GADGET, GAMEMODE, CATBOT
 
     }
 
@@ -43,6 +43,7 @@ public class MessageManager {
         prefix.put(PrefixType.PET, MessageUtils.replaceColors(f.getString("prefix.pet")));
         prefix.put(PrefixType.GADGET, MessageUtils.replaceColors(f.getString("prefix.gadget")));
         prefix.put(PrefixType.GAMEMODE, MessageUtils.replaceColors(f.getString("prefix.gamemode")));
+        prefix.put(PrefixType.CATBOT, MessageUtils.replaceColors(f.getString("prefix.catbot")));
     }
 
     /**
