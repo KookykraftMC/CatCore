@@ -1,0 +1,15 @@
+version: 0
+Server: "Hub"
+Scoreboard:
+  Display Name: "KookyKraft Network"
+Website: "kookykraftmc.com"
+Version: "1.0.0"
+debug: false
+gadgets: false
+sql:
+  hostname: 'localhost'
+  port: 3306
+  user: ''
+  pass: ''
+  database: 'kookykraft_global'
+  prefix: 'kkmc_'

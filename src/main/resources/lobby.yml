@@ -1,0 +1,9 @@
+version: 0
+Lobby Set: false
+Lobby World: 'lobby'
+
+#lobby spawn
+Lobby Spawn:
+  x: 0.0D
+  z: 0.0D
+  y: 204.0D

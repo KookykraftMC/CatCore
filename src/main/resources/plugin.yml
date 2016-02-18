@@ -1,0 +1,24 @@
+name: CatCore
+main: com.kookykraftmc.CatCore
+version: 1.0.0
+#softdepend: [Vault,BungeePerms,EchoPet]
+description: KookyKraft core plugin, allows for one easy to mantain plugin.
+commands:
+  fly:
+    description: Allows staff to fly
+  broadcast:
+    description: Allows staff to send global announcements to players
+    aliases: [bc]
+  wl:
+    description: manage the server whitelist
+  op:
+    description: op a player
+  deop:
+    description: deop a player
+  setlobby:
+    description: sets the lobby or spawn for the server
+  gamemode:
+    description: Allows staff to control a players gamemode
+    aliases: [gm]
+  gadgets:
+    description: Allows staff to enable or disable gadgets
