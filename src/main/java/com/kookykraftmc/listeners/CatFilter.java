@@ -40,7 +40,7 @@ public class CatFilter implements Listener {
         boolean isBad = false;
 
         //make sure chat is not muted, if it is don't do anything and tell the player that the chat is muted
-        if (ConfigManager.getInstance().getCatbotConfig().getBoolean("ChatEnabled")) {
+        if (ConfigManager.getInstance().getCatbotConfig().getBoolean("ChatEnabled") || player.hasPermission("catcore.bypass.chatmute")) {
 
             //chat is enabled, so we need to filter out bad words
             for (String bad : badWords) {
@@ -62,6 +62,7 @@ public class CatFilter implements Listener {
 
 
         } else {
+            e.setCancelled(true);
             MessageManager.getInstance().sendPrefixMessage(PrefixType.CATBOT, " Global chat is currently disabled", player);
         }
 
