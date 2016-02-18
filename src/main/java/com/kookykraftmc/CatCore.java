@@ -67,7 +67,6 @@ public class CatCore extends JavaPlugin {
         getCommand("wl").setExecutor(new WhitelistCommand());
         getCommand("op").setExecutor(new OPCommand());
         getCommand("deop").setExecutor(new DEOPCommand());
-        getCommand("setlobby").setExecutor(new SetLobbyCommand());
     }
 
     public void registerListeners(PluginManager pluginManager) {

@@ -33,11 +33,11 @@ public class LobbyManager {
     }
 
     public void  setup() {
-        LobbySet = configManager.getLobbyConfig().getBoolean("Lobby Set");
-        worldName = configManager.getLobbyConfig().getString("Lobby World");
-        locationX = configManager.getLobbyConfig().getDouble("Lobby Spawn.x");
-        locationZ = configManager.getLobbyConfig().getDouble("Lobby Spawn.z");
-        locationY = configManager.getLobbyConfig().getDouble("Lobby Spawn.y");
+        LobbySet = configManager.getLobbyConfig().getBoolean("lobby-set");
+        worldName = configManager.getLobbyConfig().getString("lobby-world");
+        locationX = configManager.getLobbyConfig().getDouble("lobby-spawn.x");
+        locationZ = configManager.getLobbyConfig().getDouble("lobby-spawn.z");
+        locationY = configManager.getLobbyConfig().getDouble("lobby-spawn.y");
     }
 
     public boolean isLobbySet() {
@@ -57,14 +57,18 @@ public class LobbyManager {
     public boolean setLobbySpawn(Location playerLocation) {
         try {
             //set our location for the lobby spawn
-            configManager.getLobbyConfig().set("Lobby Set", true);
-            configManager.getLobbyConfig().set("Lobby World", playerLocation.getWorld().getName());
-            configManager.getLobbyConfig().set("Lobby Spawn.x", playerLocation.getX());
-            configManager.getLobbyConfig().set("Lobby Spawn.y", playerLocation.getY());
-            configManager.getLobbyConfig().set("Lobby Spawn.z", playerLocation.getZ());
+            configManager.getLobbyConfig().set("lobby-set", true);
+            configManager.getLobbyConfig().set("lobby-world", playerLocation.getWorld().getName());
+            configManager.getLobbyConfig().set("lobby-spawn.x", playerLocation.getX());
+            configManager.getLobbyConfig().set("lobby-spawn.y", playerLocation.getY());
+            configManager.getLobbyConfig().set("lobby-spawn.z", playerLocation.getZ());
 
             //save our lobby config file
             configManager.saveLobbyConfig();
+
+            //reload our lobby config file
+            configManager.reloadLobbyConfig();
+            setup();
 
             return true;
 
